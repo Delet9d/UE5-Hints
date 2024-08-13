@@ -6,3 +6,7 @@ NotifyComponentBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* Ot
 Component End Overlap:
 NotifyComponentEndOverlap(class UPrimitiveComponent* OverlappedComp,
 		class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+
+AIController C++:
+- Go to Project.build.cs
+- Add "AIModule" to "PublicDependencyModuleNames"
