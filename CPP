@@ -10,3 +10,8 @@ NotifyComponentEndOverlap(class UPrimitiveComponent* OverlappedComp,
 AIController C++:
 - Go to Project.build.cs
 - Add "AIModule" to "PublicDependencyModuleNames"
+
+To Use AAIController Function "MoveTo":
+- Create struct FAIMoveRequest
+- Add To Created struct Destination (actor or location)
+- Set bool In Created struct SetUsePathfinding(true) to true
