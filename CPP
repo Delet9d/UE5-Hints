@@ -4,8 +4,8 @@ NotifyComponentBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* Ot
 	                                        const FHitResult& SweepResult);
 
 Component End Overlap:
-NotifyComponentEndOverlap(class UPrimitiveComponent* OverlappedComp,
-		class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+NotifyComponentEndOverlap(UPrimitiveComponent* OverlappedComp,
+		AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 
 AIController C++:
 - Go to Project.build.cs
