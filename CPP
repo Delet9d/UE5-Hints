@@ -15,3 +15,10 @@ To Use AAIController Function "MoveTo":
 - Create struct FAIMoveRequest
 - Add To Created struct Destination (actor or location)
 - Set bool In Created struct SetUsePathfinding(true) to true
+
+Add Components At Run Time:
+
+NewComponent = NewObject<UClass>(AParent, UClass::StaticClass(), "Name");
+NewComponent->SetupAttachment(AParent);
+NewComponent->RegisterComponent(); // Always After Attachment or Later
+GetOwner()->AddInstanceComponent(NewComponent); // To Apear Component In Runtime List
