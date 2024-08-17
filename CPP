@@ -17,7 +17,6 @@ To Use AAIController Function "MoveTo":
 - Set bool In Created struct SetUsePathfinding(true) to true
 
 Add Components At Run Time:
-
 NewComponent = NewObject<UClass>(AParent, UClass::StaticClass(), "Name");
 NewComponent->SetupAttachment(AParent);
 NewComponent->RegisterComponent(); // Always After Attachment or Later
