@@ -24,3 +24,11 @@ Add Components At Run Time:
 
 To Use WidgetComponents In C++:
 - Add "UMG" to "PublicDependencyModuleNames"
+
+Forward declaration (Circular Dependency):
+- In header create needed class under includes 
+	...
+	#include "Class_01.generated.h"
+	class Class_02;
+- In CPP file include needed class file;
+	#include "Class_02.h"
