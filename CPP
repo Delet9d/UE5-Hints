@@ -32,3 +32,8 @@ Forward declaration (Circular Dependency):
 	class Class_02;
 - In CPP file include needed class file;
 	#include "Class_02.h"
+
+Implement C++ Interface in Blueprint:
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void Interact();
+	virtual void Interact_Implementation();
