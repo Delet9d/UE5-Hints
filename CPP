@@ -37,3 +37,6 @@ Implement C++ Interface in Blueprint:
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	void Interact();
 	virtual void Interact_Implementation();
+
+Smoothly Changing Actor:
+- UGameplayStatics::GetPlayerController(this, 0)->SetViewTargetWithBlend(this, 2, VTBlend_EaseInOut, 2.f );
