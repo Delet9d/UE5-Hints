@@ -1,0 +1,10 @@
+- Add Tags To GameplayEffect:
+HEADER:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tags")
+	UTargetTagsGameplayEffectComponent* TagComponent;
+	UPROPERTY()
+	FInheritedTagContainer GEContainer;
+CPP:
+  AttackRangedTagContainer.AddTag(FGameplayTag::RequestGameplayTag(FName("Ability.Attack.Ranged")));
+  AttackRangedTagComponent = CreateDefaultSubobject<UTargetTagsGameplayEffectComponent>(TEXT("Ranged Attack Tag Component"));
+  AttackRangedTagComponent->SetAndApplyTargetTagChanges( AttackRangedTagContainer);
