@@ -8,3 +8,19 @@ CPP:
   AttackRangedTagContainer.AddTag(FGameplayTag::RequestGameplayTag(FName("Ability.Attack.Ranged")));
   AttackRangedTagComponent = CreateDefaultSubobject<UTargetTagsGameplayEffectComponent>(TEXT("Ranged Attack Tag Component"));
   AttackRangedTagComponent->SetAndApplyTargetTagChanges( AttackRangedTagContainer);
+
+
+- Add Tags To GameplayEffect in RunTime:
+   void UCPP_GE_SkyRift_AttackRanged::AddTagToRangedAttackEffect(FGameplayTag TagToAdd) const
+   {
+	FInheritedTagContainer InheritedTagContainer;
+	InheritedTagContainer.AddTag(TagToAdd);
+	AttackRangedTagComponent->SetAndApplyTargetTagChanges(InheritedTagContainer);
+   }
+
+   void UCPP_GE_SkyRift_AttackRanged::RemoveTagFromRangedAttackEffect(FGameplayTag TagToRemove) const
+   {
+	FInheritedTagContainer InheritedTagContainer;
+	InheritedTagContainer.RemoveTag(TagToRemove);
+	AttackRangedTagComponent->SetAndApplyTargetTagChanges(InheritedTagContainer);
+   }
