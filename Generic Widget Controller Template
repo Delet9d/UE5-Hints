@@ -1,0 +1,18 @@
+HUD.cpp
+
+template <typename T>
+T* CreateWidgetController(UObject* Outer, TSubclassOf<T> ControllerClass, FWidgetControllerData& WC_Data)
+{
+	T* ControllerRef = nullptr;
+	if (!ControllerClass)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("%s: ControllerClass is NULL"), *Outer->GetName());
+		return nullptr;
+	}
+
+	ControllerRef = NewObject<T>(Outer, ControllerClass);
+	ControllerRef->Set_WidgetController_Data(WC_Data);
+	ControllerRef->Values_BindCallbacks();
+
+	return ControllerRef;
+}
