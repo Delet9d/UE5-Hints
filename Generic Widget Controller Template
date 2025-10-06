@@ -1,4 +1,4 @@
-HUD.cpp
+//HUD.h
 
 template <typename T>
 T* CreateWidgetController(UObject* Outer, TSubclassOf<T> ControllerClass, FWidgetControllerData& WC_Data)
@@ -16,3 +16,40 @@ T* CreateWidgetController(UObject* Outer, TSubclassOf<T> ControllerClass, FWidge
 
 	return ControllerRef;
 }
+
+//HUD.cpp
+
+UWidgetController_AttributesMenu* AHUD::Get_WidgetController_AttributesMenu(FWidgetControllerData& WC_Data)
+{
+	return CreateWidgetController<UKoM_WidgetController_AttributesMenu>(this,  WidgetController_AttributeMenu_Class, WC_Data);
+}
+
+
+
+
+//BlueprintFunctionLibrary.cpp
+
+UWidgetController_Overlay* UBlueprintFunctionLibrary::Get_WidgetController_Overlay(const UObject* WorldContextObject)
+{
+	return GetWidgetController( WorldContextObject, &AKoM_HUD::Get_WidgetController_Overlay);
+}
+
+
+
+//BlueprintFunctionLibrary.h
+
+template <typename T>
+T* GetWidgetController(const UObject* WorldContextObject, T*(AKoM_HUD::*GetterFunc)(FWidgetControllerData& ))
+{
+	if (WorldContextObject == nullptr) return nullptr;
+
+	FWidgetControllerData WC_Data;
+	AKoM_HUD* HUD;
+	UKoM_BlueprintFunctionLibrary::Get_WidgetControllerParameters(WorldContextObject, WC_Data, HUD);
+	if (HUD && GetterFunc)
+	{
+		return (HUD->*GetterFunc)(WC_Data);
+	}
+	return nullptr;
+}
+
